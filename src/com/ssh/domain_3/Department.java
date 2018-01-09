@@ -1,4 +1,4 @@
-package com.ssh.domain;
+package com.ssh.domain_3;
 
 /**
  * 1~1

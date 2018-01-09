@@ -21,12 +21,12 @@
     <mapping resource="mapping/Province.hbm.xml"/>
 
     <!--b-->
-    <mapping resource="mapping/Item.hbm.xml"/>
-    <mapping resource="mapping/Category.hbm.xml"/>
+    <mapping resource="mapping_02/Item.hbm.xml"/>
+    <mapping resource="mapping_02/Category.hbm.xml"/>
 
     <!--c-->
-    <mapping resource="mapping/Department.hbm.xml"/>
-    <mapping resource="mapping/Manager.hbm.xml"/>
+    <mapping resource="mapping_03/Department.hbm.xml"/>
+    <mapping resource="mapping_03/Manager.hbm.xml"/>
   </session-factory>
 
 </hibernate-configuration>

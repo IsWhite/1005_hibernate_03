@@ -12,9 +12,9 @@
         set:描述的是city类中区域集合成员变量
         key:定义的是city表与area表之间的外键名称.cityId,不要与成员变量重名
         one-to-many:描述city与area之间的关系
-        inverse:只能在set标签中定义,两个表之间的关系由谁来维护,true:自己放弃关系维护,由另一个表维护
+        inverse(译:倒转-维护权限取反):只能在set标签中定义,两个表之间的关系由谁来维护,true:自己放弃关系维护,由另一个表维护
                     false:默认值,代表自己维护
-        cascade:级联操作,代表的是操作city时会不会影响或者叫级联到Area
+        cascade(译:串联-级联操作):,代表的是操作city时会不会影响或者叫级联到Area
                save-update:只有保存和更新的操作才会影响
                delete:只有删除的操作才会影响
                all"保存,更新,删除的操作都会影响

@@ -1,4 +1,6 @@
-package com.ssh.domain;
+package com.ssh.domain_3;
+
+import com.ssh.domain_3.Department;
 
 /**
  * Created by dllo on 18/1/9.

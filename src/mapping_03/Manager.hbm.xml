@@ -2,7 +2,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.ssh.domain.Manager">
+    <class name="com.ssh.domain_3.Manager">
         <id name="id">
             <!--以外键生成本表的主键,即引用另外一张表中的主键作为本表的-->
             <generator class="foreign">
@@ -15,7 +15,7 @@
         -->
 
         <one-to-one name="department"
-                    class="com.ssh.domain.Department"
+                    class="com.ssh.domain_3.Department"
                     constrained="true"/>
         <property name="name"/>
     </class>

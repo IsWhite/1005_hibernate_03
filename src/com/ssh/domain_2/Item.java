@@ -1,4 +1,6 @@
-package com.ssh.domain;
+package com.ssh.domain_2;
+
+import com.ssh.domain_2.Category;
 
 import java.util.HashSet;
 import java.util.Set;

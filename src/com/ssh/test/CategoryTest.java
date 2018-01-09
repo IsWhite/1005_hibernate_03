@@ -1,7 +1,7 @@
 package com.ssh.test;
 
-import com.ssh.domain.Category;
-import com.ssh.domain.Item;
+import com.ssh.domain_2.Category;
+import com.ssh.domain_2.Item;
 import org.junit.Test;
 
 /**
