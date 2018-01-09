@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssh.domain.Province">
+        <id name="pid">
+            <generator class="native"/>
+        </id>
+        <property name="pname"></property>
+
+        <!--设定cities  1~n的关系  lazy="true"懒加载,默认值,代表不加载set集合;
+        false(取消懒加载),代表加载set集合,不管需不需要都在查询省份的时候把对应的城市列表页一并查询
+
+
+                -->
+        <set name="cities" inverse="true"
+             cascade="save-update"
+             lazy="false">
+            <key column="ProvID"/>
+            <one-to-many class="com.ssh.domain.City"/>
+        </set>
+    </class>
+
+
+</hibernate-mapping>

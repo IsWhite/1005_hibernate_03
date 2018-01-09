@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssh.domain.Category">
+        <id name="cid">
+            <generator class="native"/>
+        </id>
+        <property name="cname"/>
+
+        <!--n~n 单项 需要建出来一个中间表,用于维护双方之间的关系-->
+        <!--
+        set:描述的集合对象,
+        name:映射文件所对应的实体类中的集合成员变量名称
+        table:自定义中间表表名,通常以两个表表名拼接命名
+        key:映射文件对应的实体类在中间表中存在的外键名称
+        many-to-many描述多对多关系,class指明集合的存放的实体类类型;
+        column指的是集合对象在中间表中的外键名称
+
+
+        -->
+        <set name="items" table="category_item"
+        inverse="false" cascade="save-update"
+        lazy="false">
+            <key column="categoryId"></key>
+            <many-to-many class="com.ssh.domain.Item"
+                          column="itemId"/>
+        </set>
+    </class>
+</hibernate-mapping>

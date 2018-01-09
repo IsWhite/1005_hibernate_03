@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!--必须要配置的-->
+    <property name="connection.url">jdbc:mysql://localhost:3306/ssh</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">123456</property>
+    <!-- 可选项 -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+    <!--A4-->
+    <mapping resource="mapping/Area.hbm.xml"/>
+    <mapping resource="mapping/City.hbm.xml"/>
+    <mapping resource="mapping/Province.hbm.xml"/>
+
+    <!--b-->
+    <mapping resource="mapping/Item.hbm.xml"/>
+    <mapping resource="mapping/Category.hbm.xml"/>
+
+    <!--c-->
+    <mapping resource="mapping/Department.hbm.xml"/>
+    <mapping resource="mapping/Manager.hbm.xml"/>
+  </session-factory>
+
+</hibernate-configuration>

@@ -1,0 +1,45 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssh.domain.City">
+        <id name="cid">
+            <generator class="native"/>
+        </id>
+        <property name="cname"></property>
+        <!--定义城市-区域 1~n的关系描述,在1的一方描述关系-->
+        <!--
+        set:描述的是city类中区域集合成员变量
+        key:定义的是city表与area表之间的外键名称.cityId,不要与成员变量重名
+        one-to-many:描述city与area之间的关系
+        inverse:只能在set标签中定义,两个表之间的关系由谁来维护,true:自己放弃关系维护,由另一个表维护
+                    false:默认值,代表自己维护
+        cascade:级联操作,代表的是操作city时会不会影响或者叫级联到Area
+               save-update:只有保存和更新的操作才会影响
+               delete:只有删除的操作才会影响
+               all"保存,更新,删除的操作都会影响
+        -->
+        <set name="areas" inverse="true" cascade="delete">
+
+            <key column="cityId"/>
+            <one-to-many class="com.ssh.domain.Area"/>
+        </set>
+
+        <!--城市对应省份的映射 1~n的关系,在n的一方定义1
+        1~n双向,在1的一方定义set,在n的一方定义many-to-one
+        双方通过同一个外键名关联,即clumn保持一致;
+        在set的一方将inverse设置为true,放弃关系维护交给n的这方维护
+        column="ProvID"与省份外键一致
+        cascade="save-update"操作城市,级联省份
+        -->
+        <many-to-one name="province"
+                     class="com.ssh.domain.Province"
+                     column="ProvID"
+                     cascade="save-update"/>
+
+
+    </class>
+
+
+
+</hibernate-mapping>

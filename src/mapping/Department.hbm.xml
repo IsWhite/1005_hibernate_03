@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssh.domain.Department">
+        <!--部门生成主键-->
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <!--
+        1~1关系:基于主键的生成策略,在生成主键的一方建立
+        one-to-one,其中最关键的属性是constrained(约束),
+        也叫外键约束,即约束外键的唯一性
+        -->
+        <property name="name"/>
+        <!--<one-to-one name="manager"-->
+                    <!--class="com.ssh.domain.Manager"-->
+                    <!--constrained="true"/>-->
+
+        <!--unique="true 限制唯一性-->
+    <many-to-one name="manager"
+                 class="com.ssh.domain.Manager"
+                 unique="true"/>
+
+
+    </class>
+
+
+</hibernate-mapping>

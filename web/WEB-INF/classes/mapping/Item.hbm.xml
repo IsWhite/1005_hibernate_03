@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ssh.domain.Item">
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="name"/>
+
+        <!--n~n双向,两个表分别描述set集合
+        a,生成的中间表表名必须一致
+        b,中间表中包含的外键id必须一致
+        c,inverse一方为true,另一方为false
+
+        set name="categories" name:描述名
+        -->
+
+        <set name="categories" table="category_item"
+        inverse="true" cascade="save-update" lazy="false">
+            <key column="itemId"></key>
+            <many-to-many
+                class="com.ssh.domain.Category"
+                column="categoryId"/>
+        </set>
+    </class>
+
+</hibernate-mapping>
