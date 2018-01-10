@@ -12,8 +12,8 @@ public class City {
 
     private  Province province; //当前城市对应省份
 
-    //用于存放当前城市对象中的区域集合 一对多关系中的1考虑
-    private Set<Area> areas=new HashSet<>();
+   /* 用于存放当前城市对象中的区域集合 一对多关系中的1考虑*/
+    private Set<Area> areas=new HashSet<>();//1中有n的集合
 
     public City() {
     }

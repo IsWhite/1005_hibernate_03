@@ -36,7 +36,7 @@ public class AreaTest extends BaseTest{
     }
     @Test
     public void delete(){
-        //先通过get获得要删除的对象 ,对象必须是持久化的
+        /*先通过get获得要删除的对象 ,对象必须是持久化的*/
         Area area=session.get(Area.class,1);
         session.delete(area);//按对象删除
 

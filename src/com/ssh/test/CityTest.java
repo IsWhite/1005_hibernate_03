@@ -30,18 +30,21 @@ public class CityTest extends BaseTest {
 
     }
     @Test
-    public void delete(){
+    public void delete(){ //从数据库得到属性才能删除
       City city=session.get(City.class,1);
         session.delete(city);
 
     }
+
+
     @Test
-    public void update(){
+    public void update(){//得到属性再替值
         City city =session.get(City.class,2);
         city.setCname("丹东");
         session.update(city);
 
     }
+
     @Test
     public void query(){
 
@@ -53,18 +56,20 @@ public class CityTest extends BaseTest {
 
     }
 
+
+
     /*
     * 针对1~n关系的保存1这方的单元测试
     * */
     @Test
     public void  save(){
         City city =new City("大连");
-//        Area area =new Area("东京");
+//        Area area =new Area("东京"); 错误
 
-        Area area= session.get(Area.class,3);
+        Area area= session.get(Area.class,3); //找出一个"位置"
 
-        //城市与区域绑定关系,即将区域添加到城市列表中
-        city.getAreas().add(area);
+        /*城市与区域绑定关系,即将区域添加到城市列表中*/
+        city.getAreas().add(area); //主表.get附表属性.add(附表对象):集合中加数据
         session.save(city);//保存主关系的对象-城市
     }
 
@@ -85,10 +90,10 @@ public class CityTest extends BaseTest {
         //从城市city对象获得区域对象 更改区域的名称
         //检查是否区域表中的数据修改
 
-        Set<Area>  areas =city.getAreas();
+        Set<Area>  areas =city.getAreas(); //
         if (areas!=null&&!areas.isEmpty()){
             //取set集合中的第一个元素
-            Area area1 =areas.iterator().next();
+            Area area1 =areas.iterator().next();//集合.迭代器
 
             //更新城市对象中的区域第一个区域对象的名称
             area1.setAname("新抚区");
@@ -98,6 +103,7 @@ public class CityTest extends BaseTest {
         }
 
     }
+
 
     @Test
     public void  testCascade2(){
